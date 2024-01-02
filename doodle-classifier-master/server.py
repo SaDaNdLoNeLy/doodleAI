@@ -87,7 +87,7 @@ CLASSES = {}
 for idx, obj in enumerate(objects):
     CLASSES[idx] = obj.replace('\n', '')
 print(CLASSES)
-conv = load_model("./models/doodle_2024-01-03_00-44-39.h5")
+conv = load_model("./models/doodle_2024-01-03_01-44-36.h5")
 SHAPES = CLASSES
 
 def save_numpy_array(array, file_path):
@@ -104,12 +104,16 @@ def save_numpy_array(array, file_path):
 @app.route("/", methods=["GET", "POST"])
 def ready():
     if request.method == "GET":
-        return render_template("index1.html")
+        classes =list(SHAPES.values())
+        classesText = f"Draw an object belong to one of the following categories: {', '.join(classes)}. Then see the prediction"
+        return render_template("index1.html", classesText=classesText)
     if request.method == "POST":
         data = request.form["payload"].split(",")[1]
         net = request.form["net"]
 
         img = base64.decodebytes(data.encode('utf-8'))
+        with open('static/temp.png', 'wb') as output:
+            output.write(img)
         with open('temp.png', 'wb') as output:
             output.write(img)
         x = imread('temp.png', pilmode='L')
@@ -145,7 +149,8 @@ def ready():
         print(pred)
         print(classes)
         print(list(val[0]))
-        return render_template("index1.html", preds=list(val[0]), classes=json.dumps(classes), chart=True, putback=request.form["payload"], net=net)
+        classesText = f"Draw an object belong to one of the following categories: {', '.join(classes)}. Then see the prediction"
+        return render_template("index1.html", preds=list(val[0]), classes=json.dumps(classes), chart=True, putback=request.form["payload"], net=net, tempImage='./temp.png', classesText=classesText)
 
 if __name__ == "__main__":
     app.run()
