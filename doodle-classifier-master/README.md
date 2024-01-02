@@ -1,15 +1,5 @@
 # doodle-classifier
-
-Watch a neural network classify your fruit drawings.
-GUI was made using Electron.js paired up with a Python backend running a flask server.
-
-Watch the video here : https://youtu.be/O8Gvkq8y-qs
-
-Google colab notebook : https://colab.research.google.com/drive/1pG7gbXyAq-8UL_Pj18FV6O-jU0MmYZze
-
-
-<img src="/samples/1.png" width="50%" />
-
+Inspired By SouravJohar
 ## Requirements
 * Python
 * Electron.js
