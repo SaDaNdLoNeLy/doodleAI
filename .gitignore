@@ -1,1 +1,4 @@
-*/
+./bin_data
+./npy_data
+*/node_modules
+*/__pycache__
