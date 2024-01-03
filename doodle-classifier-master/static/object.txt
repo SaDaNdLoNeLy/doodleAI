@@ -1,6 +1,0 @@
-triangle
-circle
-square
-apple
-banana
-diamond
