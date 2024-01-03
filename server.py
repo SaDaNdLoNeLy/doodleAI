@@ -11,7 +11,7 @@ import json
 app = Flask(__name__)
 
 # mlp = load_model("./models/mlp_94.h5")
-object_file = open("./static/object.txt", "r")
+object_file = open("./object.txt", "r")
 objects = object_file.readlines()
 object_file.close()
 N_CLASSES = len(objects)
@@ -75,7 +75,6 @@ def ready():
         x = normalize(x)
         val = model.predict(np.array([x]))
         print(val)
-        save_numpy_array(np.array([x]), "user-data.npy")
         pred = SHAPES[np.argmax(val)]
         classes =list(SHAPES.values())
         print(pred)
