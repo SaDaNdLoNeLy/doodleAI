@@ -9,3 +9,4 @@ npy_data
 node_modules
 __pycache__
 user-data.npy
+temp.png

@@ -1,6 +1,6 @@
-triangle
-circle
-square
+broccoli
 apple
 banana
-diamond
+pineapple
+watermelon
+grapes
