@@ -1,6 +1,4 @@
-broccoli
 apple
 banana
-pineapple
-watermelon
 grapes
+strawberry
