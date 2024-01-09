@@ -10,3 +10,6 @@ node_modules
 __pycache__
 user-data.npy
 temp.png
+./temp.png
+./static/temp.png
+./model
