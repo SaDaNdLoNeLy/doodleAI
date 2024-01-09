@@ -7,23 +7,23 @@ def add_image(df, fruit):
     df = pd.concat([df, df_fruit_image], axis = 1)
     df = df[df['recognized'] == True]
     df = df.drop(['recognized'], axis = 1)
-    df = df.sample(n = 5000, replace=True)
+    df = df.sample(n = 1000, replace=True)
     return df
-
+    
 def get_data():
     df_lion_original = pd.read_csv('../data/lion.csv')
-    lion = np.load('../data_npy/lion.npy')
+    lion = np.load('../npy_data/lion.npy')
     df_lion = add_image(df_lion_original, lion)
 
     df_panda_original = pd.read_csv('../data/panda.csv')
-    panda = np.load('../data_npy/panda.npy')
+    panda = np.load('../npy_data/panda.npy')
     df_panda = add_image(df_panda_original, panda)
 
     df_monkey_original = pd.read_csv('../data/monkey.csv')
-    monkey = np.load('../data_npy/monkey.npy')
+    monkey = np.load('../npy_data/monkey.npy')
     df_monkey = add_image(df_monkey_original, monkey)
 
     df_duck_original = pd.read_csv('../data/duck.csv')
-    duck = np.load('../data_npy/duck.npy')
+    duck = np.load('../npy_data/duck.npy')
     df_duck = add_image(df_duck_original, duck)
     return df_lion, df_panda, df_monkey, df_duck
